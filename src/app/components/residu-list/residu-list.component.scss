@@ -1,0 +1,228 @@
+.llista-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filtres {
+  display: flex;
+  gap: 0.75rem;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: 2rem;
+    color: var(--text-muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    &.actiu {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+      font-weight: bold;
+
+      .badge {
+        background: rgba(0,0,0,0.2);
+        color: var(--bg);
+      }
+    }
+  }
+}
+
+.badge {
+  background: var(--surface);
+  color: var(--text-muted);
+  padding: 0.1rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+
+  &.pendent {
+    background: rgba(230, 100, 50, 0.15);
+    color: var(--warning);
+  }
+}
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .stat-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--accent);
+    line-height: 1;
+
+    &.pendent {
+      color: var(--warning);
+    }
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+}
+
+.taula-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.taula-residus {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+
+  th {
+    background: var(--surface);
+    color: var(--text-muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover td {
+    background: var(--surface);
+  }
+
+  .fila-processat {
+    opacity: 0.65;
+  }
+}
+
+.id-col {
+  font-family: 'Space Mono', monospace;
+  color: var(--text-muted) !important;
+  font-size: 0.8rem !important;
+}
+
+.nom-col {
+  font-weight: 500;
+  min-width: 180px;
+}
+
+.badge-tipus {
+  padding: 0.2rem 0.65rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Space Mono', monospace;
+  white-space: nowrap;
+
+  &.tipus-perills, &.tipus-perllos {
+    background: rgba(220, 50, 50, 0.12);
+    color: #dc3232;
+  }
+
+  &.tipus-reciclable {
+    background: rgba(40, 160, 90, 0.12);
+    color: #28a05a;
+  }
+
+  &.tipus-especial {
+    background: rgba(180, 120, 0, 0.12);
+    color: #b47800;
+  }
+}
+
+.badge-estat {
+  padding: 0.2rem 0.65rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-family: 'Space Mono', monospace;
+  white-space: nowrap;
+
+  &.estat-pendent {
+    background: rgba(230, 120, 40, 0.12);
+    color: var(--warning);
+  }
+
+  &.estat-processat {
+    background: rgba(40, 160, 90, 0.12);
+    color: #28a05a;
+  }
+}
+
+.accions {
+  display: flex;
+  gap: 0.4rem;
+
+  .btn-accio {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--border);
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.processar:hover {
+      background: rgba(40, 160, 90, 0.15);
+      border-color: #28a05a;
+    }
+
+    &.revertir:hover {
+      background: rgba(180, 120, 0, 0.15);
+      border-color: #b47800;
+    }
+
+    &.eliminar:hover {
+      background: rgba(220, 50, 50, 0.15);
+      border-color: #dc3232;
+    }
+  }
+}
+
+.buit {
+  text-align: center;
+  padding: 2rem !important;
+  color: var(--text-muted);
+  font-style: italic;
+}

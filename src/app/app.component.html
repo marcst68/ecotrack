@@ -1,0 +1,63 @@
+<div class="app-shell">
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">♻</span>
+        <div>
+          <span class="logo-text">EcoTrack</span>
+          <span class="logo-sub">Sistema de gestió de residus</span>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span class="offline-badge" id="offlineBadge">
+          <span class="dot"></span> En línia
+        </span>
+        <span class="version">v1.0.0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-layout">
+    <aside class="sidebar">
+      <nav class="nav-menu">
+        <button
+          [class.nav-actiu]="vistaActiva === 'llista'"
+          (click)="vistaActiva = 'llista'">
+          <span class="nav-ico">▦</span>
+          Inventari
+        </button>
+        <button
+          [class.nav-actiu]="vistaActiva === 'nou'"
+          (click)="vistaActiva = 'nou'">
+          <span class="nav-ico">+</span>
+          Nou registre
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p class="sidebar-info">
+          EcoSolutions SL<br>
+          <span>Planta Industrial 3</span>
+        </p>
+      </div>
+    </aside>
+
+    <section class="contingut">
+      @if (vistaActiva === 'llista') {
+        <div class="vista-header">
+          <h2>Inventari de residus</h2>
+          <p class="vista-desc">Gestiona tots els residus registrats a la planta.</p>
+        </div>
+        <app-residu-list />
+      }
+
+      @if (vistaActiva === 'nou') {
+        <div class="vista-header">
+          <h2>Registrar nou residu</h2>
+          <p class="vista-desc">Omple el formulari per afegir un nou residu a l'inventari.</p>
+        </div>
+        <app-residu-form />
+      }
+    </section>
+  </main>
+</div>

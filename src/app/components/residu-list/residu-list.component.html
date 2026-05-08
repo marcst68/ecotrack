@@ -1,0 +1,91 @@
+<section class="llista-container">
+  <div class="filtres">
+    <button
+      [class.actiu]="mostrarTots()"
+      (click)="filtre.set('tots')">
+      <i class="ico">◉</i> Tots
+      <span class="badge">{{ servei.total() }}</span>
+    </button>
+    <button
+      [class.actiu]="!mostrarTots()"
+      (click)="filtre.set('pendents')">
+      <i class="ico">⏳</i> Pendents
+      <span class="badge pendent">{{ servei.totalPendents() }}</span>
+    </button>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">{{ servei.total() }}</span>
+      <span class="stat-label">Residus totals</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num pendent">{{ servei.totalPendents() }}</span>
+      <span class="stat-label">Pendents</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">{{ servei.pesTotal() | number:'1.1-1' }} kg</span>
+      <span class="stat-label">Pes total</span>
+    </div>
+  </div>
+
+  <div class="taula-wrapper">
+    <table class="taula-residus">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nom del residu</th>
+          <th>Tipus</th>
+          <th>Pes (kg)</th>
+          <th>Data</th>
+          <th>Estat</th>
+          <th>Accions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (residu of residusMostrats(); track residu.id) {
+          <tr [class]="'fila-' + residu.estat.toLowerCase()">
+            <td class="id-col">{{ residu.id }}</td>
+            <td class="nom-col">{{ residu.nom }}</td>
+            <td>
+              <span class="badge-tipus" [class]="'tipus-' + residu.tipus.toLowerCase().replace('ó','o')">
+                {{ residu.tipus }}
+              </span>
+            </td>
+            <td>{{ residu.pes | number:'1.1-1' }}</td>
+            <td>{{ residu.data | date:'dd/MM/yyyy' }}</td>
+            <td>
+              <span class="badge-estat" [class]="residu.estat === 'Pendent' ? 'estat-pendent' : 'estat-processat'">
+                @if (residu.estat === 'Pendent') {
+                  ⏳ Pendent
+                } @else {
+                  ✅ Processat
+                }
+              </span>
+            </td>
+            <td class="accions">
+              @if (residu.estat === 'Pendent') {
+                <button class="btn-accio processar" (click)="processar(residu.id)" title="Marcar com a processat">
+                  ✓
+                </button>
+              } @else {
+                <button class="btn-accio revertir" (click)="revertir(residu.id)" title="Marcar com a pendent">
+                  ↩
+                </button>
+              }
+              <button class="btn-accio eliminar" (click)="eliminar(residu.id)" title="Eliminar residu">
+                ✕
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="7" class="buit">
+              No hi ha residus pendents. Torna a la vista completa per veure'ls tots.
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

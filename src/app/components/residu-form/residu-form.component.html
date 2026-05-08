@@ -1,0 +1,86 @@
+<div class="form-card">
+  <h3 class="form-title">
+    <span class="title-deco">+</span> Nou registre de residu
+  </h3>
+
+  <form (ngSubmit)="enviar()" #formulari="ngForm" class="formulari">
+    <div class="camp-grup">
+      <label for="nom">Nom del residu *</label>
+      <input
+        id="nom"
+        type="text"
+        [(ngModel)]="nouResidu.nom"
+        name="nom"
+        required
+        placeholder="Ex: Oli hidràulic usat"
+        #nomCtrl="ngModel" />
+      @if (nomCtrl.invalid && nomCtrl.touched) {
+        <span class="error">El nom és obligatori.</span>
+      }
+    </div>
+
+    <div class="fila-2">
+      <div class="camp-grup">
+        <label for="tipus">Tipus *</label>
+        <select id="tipus" [(ngModel)]="nouResidu.tipus" name="tipus" required>
+          <option value="">— Selecciona —</option>
+          <option value="Perillós">⚠ Perillós</option>
+          <option value="Reciclable">♻ Reciclable</option>
+          <option value="Especial">★ Especial</option>
+        </select>
+      </div>
+
+      <div class="camp-grup">
+        <label for="pes">Pes (kg) *</label>
+        <input
+          id="pes"
+          type="number"
+          [(ngModel)]="nouResidu.pes"
+          name="pes"
+          required
+          min="0.1"
+          step="0.1"
+          placeholder="0.0"
+          #pesCtrl="ngModel" />
+        @if (pesCtrl.invalid && pesCtrl.touched) {
+          <span class="error">El pes ha de ser major que 0.</span>
+        }
+      </div>
+    </div>
+
+    <div class="fila-2">
+      <div class="camp-grup">
+        <label for="data">Data *</label>
+        <input
+          id="data"
+          type="date"
+          [(ngModel)]="nouResidu.data"
+          name="data"
+          required />
+      </div>
+
+      <div class="camp-grup">
+        <label for="estat">Estat inicial</label>
+        <select id="estat" [(ngModel)]="nouResidu.estat" name="estat">
+          <option value="Pendent">⏳ Pendent</option>
+          <option value="Processat">✅ Processat</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="accions-form">
+      <button type="submit" class="btn-primary" [disabled]="formulari.invalid">
+        Registrar residu
+      </button>
+      <button type="button" class="btn-secondary" (click)="netejar()">
+        Netejar
+      </button>
+    </div>
+  </form>
+
+  @if (missatgeExit()) {
+    <div class="missatge-exit">
+      ✓ Residu afegit correctament!
+    </div>
+  }
+</div>
