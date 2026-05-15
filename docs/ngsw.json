@@ -1,7 +1,7 @@
 {
   "configVersion": 1,
-  "timestamp": 1778852192636,
-  "index": "/index.html",
+  "timestamp": 1778854801044,
+  "index": "C:/Program Files/Git/ecotrack/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -11,11 +11,11 @@
         "ignoreVary": true
       },
       "urls": [
-        "/index.html",
-        "/main-5H4DW2FI.js",
-        "/manifest.webmanifest",
-        "/polyfills-FFHMD2TL.js",
-        "/styles-2YFY3HMX.css"
+        "C:/Program Files/Git/ecotrack/index.html",
+        "C:/Program Files/Git/ecotrack/main-5H4DW2FI.js",
+        "C:/Program Files/Git/ecotrack/manifest.webmanifest",
+        "C:/Program Files/Git/ecotrack/polyfills-FFHMD2TL.js",
+        "C:/Program Files/Git/ecotrack/styles-2YFY3HMX.css"
       ],
       "patterns": []
     },
@@ -47,11 +47,11 @@
     }
   ],
   "hashTable": {
-    "/index.html": "ae693637a27458d306ff1c350fd0e1464be9e307",
-    "/main-5H4DW2FI.js": "250755e9f574a17cd6468f177fe7e05437c51952",
-    "/manifest.webmanifest": "e84c4c02428c76bf5e63b3b6178ed0682701fd1e",
-    "/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
-    "/styles-2YFY3HMX.css": "70d546e5276bf947682f153c0c8d49c11a57a9b9"
+    "C:/Program Files/Git/ecotrack/index.html": "fe87bdbd906125b61915dca248357d9af2986f76",
+    "C:/Program Files/Git/ecotrack/main-5H4DW2FI.js": "250755e9f574a17cd6468f177fe7e05437c51952",
+    "C:/Program Files/Git/ecotrack/manifest.webmanifest": "e84c4c02428c76bf5e63b3b6178ed0682701fd1e",
+    "C:/Program Files/Git/ecotrack/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
+    "C:/Program Files/Git/ecotrack/styles-2YFY3HMX.css": "70d546e5276bf947682f153c0c8d49c11a57a9b9"
   },
   "navigationUrls": [
     {
